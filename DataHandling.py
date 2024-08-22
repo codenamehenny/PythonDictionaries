@@ -17,7 +17,12 @@ def add_ticket(customer_value, issue_value):
     ticket_key = max(service_tickets.keys())
     ticket_number = int(ticket_key.replace("Ticket",'')) # removing string so we can update the ticket number once added
     new_ticket_number = ticket_number + 1
-    new_ticket_number = f"Ticket00{new_ticket_number}"
+    if new_ticket_number < 10:
+        new_ticket_number = f"Ticket00{new_ticket_number}"
+    elif 10 < new_ticket_number < 100:
+        new_ticket_number = f"Ticket0{new_ticket_number}"
+    else:
+        print("Too many tickets opened. Close the others in queue.")
     status_open = "open"
     service_tickets.update({new_ticket_number: {"Customer": customer_value, "Issue": issue_value, "Status": status_open}})
     return print(f"\n{new_ticket_number} successfully added. Returning to main menu")
@@ -28,7 +33,6 @@ def display_tickets():
         print(f"\nDetails of {outer_dictionary}:")
         for key, value in inner_dictionary.items():
             print(f"{key}: {value}")
-    #print("\nReturning to menu")
 
 #ticket tracker function
 def data_handling_menu():
