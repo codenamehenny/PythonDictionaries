@@ -9,7 +9,7 @@ restaurant_menu = {
 }
 
 # - Add a new category called "Beverages" with at least two items.
-restaurant_menu.update({"Beverages": {"Water": 1.99, "Fruit Juice": 2.99}})
+restaurant_menu["Beverages"]= {"Water": 1.99, "Fruit Juice": 2.99}
 
 #- Update the price of "Steak" to 17.99.
 restaurant_menu["Main Course"].update({"Steak":17.99})
@@ -22,6 +22,3 @@ for course, course_item in restaurant_menu.items():
     print(f"{course}:")
     for item, price in course_item.items():
         print(f"-{item}: {price}")
-
-
-#print(restaurant_menu)
